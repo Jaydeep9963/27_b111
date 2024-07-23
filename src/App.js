@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import ItemList from "./ItemList";
 
-function App() {
+const App = () => {
+  const [item, setItem] = useState([
+    {
+      id: 1,
+      title: "Teacher List",
+      summary: "List of teacher",
+      fullDescription: "Here we Provide multiple student list",
+    },
+    {
+      id: 2,
+      title: "Student List",
+      summary: "List of student",
+      fullDescription: "Here we Provide multiple Teacher list",
+    },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <ItemList items={item} setItems={setItem} />
+      </div>
+    </>
   );
-}
+};
 
 export default App;
